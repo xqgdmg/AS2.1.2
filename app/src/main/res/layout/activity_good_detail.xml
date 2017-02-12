@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mystyle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--显示的内容,包含头部 -->
+    <com.cpoopc.scrollablelayoutlib.ScrollableLayout
+        android:id="@+id/scrollableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+            <!-- 头部 -->
+            <LinearLayout
+                android:id="@+id/llimageHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="我是头可以是任何布局"/>
+                <TextView
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:text="我是头可以是任何布局"/>
+            </LinearLayout>
+
+        <com.astuetz.PagerSlidingTabStripExtends
+            android:background="#000"
+            android:id="@+id/pagerStrip"
+            android:layout_width="match_parent"
+            mystyle:pstsIndicatorColor="#FFD3A452"
+            mystyle:pstsSelectedTabTextColor="#FFD3A452"
+            mystyle:pstsSelectedTabTextSize="18sp"
+            mystyle:pstsTabTextColor="#fff"
+            mystyle:pstsTabTextSize="16sp"
+            mystyle:pstsUnderlineHeight="3dp"
+            mystyle:pstsIndicatorHeight="3dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.cpoopc.scrollablelayoutlib.ScrollableLayout>
+
+</LinearLayout>

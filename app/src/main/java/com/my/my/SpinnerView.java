@@ -102,7 +102,6 @@ public class SpinnerView extends RelativeLayout {
 			//给ListView设置边框
 			contentView.setBackgroundResource(R.drawable.listview_background);
 			
-			
 			contentView.setOnItemClickListener(new OnItemClickListener() {
 
 				@Override

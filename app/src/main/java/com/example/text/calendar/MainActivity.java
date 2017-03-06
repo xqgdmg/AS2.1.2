@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+
+import com.example.text.calendar.demo2.CalendarActivity2;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -14,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.btn)
     Button btn;
+    @Bind(R.id.btn2)
+    Button btn2;
     private String year;
     private String month;
     private String day;
@@ -35,20 +40,29 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case 1:
-                if (resultCode == RESULT_OK)
+                if (resultCode == RESULT_OK){
                     year = data.getStringExtra("year");
-                month = data.getStringExtra("month");
-                day = data.getStringExtra("day");
-                selectIndex = data.getIntExtra("selectIndex", 0);
-                startTime = year + "-" + month + "-" + day;
-                endTime = year + "-" + month + "-" + day;
-                Log.e("chris", "startTime=" + startTime + ",endTime=" + endTime + ",selectIndex=" + selectIndex);
+                    month = data.getStringExtra("month");
+                    day = data.getStringExtra("day");
+                    selectIndex = data.getIntExtra("selectIndex", 0);
+                    startTime = year + "-" + month + "-" + day;
+                    endTime = year + "-" + month + "-" + day;
+                    Log.e("chris", "startTime=" + startTime + ",endTime=" + endTime + ",selectIndex=" + selectIndex);
+                }
+
                 break;
         }
     }
 
-    @OnClick(R.id.btn)
-    public void onClick() {
-        startActivityForResult(new Intent(this, CalendarActivity.class), 1);
+    @OnClick({R.id.btn, R.id.btn2})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn:
+                startActivityForResult(new Intent(this, CalendarActivity.class), 1);
+                break;
+            case R.id.btn2:
+                startActivity(new Intent(this, CalendarActivity2.class));
+                break;
+        }
     }
 }

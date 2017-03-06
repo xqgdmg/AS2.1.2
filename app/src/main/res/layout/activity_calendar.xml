@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="all">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:paddingLeft="10dp">
+
+        <ImageView
+            android:id="@+id/iv_preMonth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40dp"
+            android:padding="13dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iv_preMonth"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/view_slash_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_year"
+            android:text="/"
+            android:layout_margin="3dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/view_slash_line"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/iv_nextMonth"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/view_slash_line"
+            android:padding="13dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <Button
+            android:id="@+id/btn_today"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="right|center_vertical"
+            android:text="今天"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="30.0dip">
+
+        <TextView
+            style="@style/weekName"
+            android:text="@string/sunday" />
+
+        <TextView
+            style="@style/weekName"
+            android:text="@string/monday" />
+
+        <TextView
+            style="@style/weekName"
+            android:text="@string/tuesday" />
+
+        <TextView
+            style="@style/weekName"
+            android:text="@string/wednesday" />
+
+        <TextView
+            style="@style/weekName"
+            android:text="@string/thursday" />
+
+        <TextView
+            style="@style/weekName"
+            android:text="@string/friday" />
+
+        <TextView
+            style="@style/weekName"
+            android:text="@string/saturday" />
+    </LinearLayout>
+
+    <com.example.text.calendar.NoScrollGridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="5dp"
+        android:clickable="true"
+        android:clipChildren="true"
+        android:columnWidth="40dp"
+        android:horizontalSpacing="1.0dip"
+        android:listSelector="@null"
+        android:numColumns="7"
+        android:overScrollMode="never"
+        android:paddingBottom="5dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1.0dip" />
+
+</LinearLayout>

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
          // 1 计算本地图片的宽高比
         mothod1(iv, ratioLayout);
 
-         // 2 计算本地图片的宽高比 glide
+         // 2 计算图片的宽高比 glide
         mothod2(iv, ratioLayout);
 
     }

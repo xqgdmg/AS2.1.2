@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,25 +7,15 @@
     android:orientation="vertical"
     tools:context="com.example.text.ratiolayout.MainActivity">
 
-    <!-- 已知图片的宽高比，并且是固定的，这里直接写死就行了，代码优先级高于 xml-->
-    <com.example.text.ratiolayout.RatioLayout
-        android:id="@+id/ratio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:picRatio="1"
-        app:relative="width">
-
-        <ImageView
-            android:id="@+id/iv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@mipmap/t2" />
-    </com.example.text.ratiolayout.RatioLayout>
-
     <Button
         android:text="OOM"
-        android:id="@+id/btn"
+        android:id="@+id/btnOom"
         android:layout_width="match_parent"
         android:layout_height="50dp" />
-</FrameLayout>
+
+    <Button
+        android:text="Ratio"
+        android:id="@+id/btnRatio"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</LinearLayout>

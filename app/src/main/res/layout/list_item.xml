@@ -4,10 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- 直接写死宽高，压缩成100*100 的时候，图片大小不变，只是模糊了 -->
+    <!-- 不写死也是一样 -->
+    <!-- inSampleSize 只是压缩率，不影响图片的宽高，控件的大小，只是分辨率变小了，变模糊了 -->
     <ImageView
         android:layout_gravity="center"
         android:id="@+id/imageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

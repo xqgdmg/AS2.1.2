@@ -1,4 +1,4 @@
-package com.example.text.ratiolayout.oom;
+package com.example.text.ratiolayout.ui;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -12,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.example.text.ratiolayout.MainActivity;
 import com.example.text.ratiolayout.R;
 
 /**
@@ -75,22 +74,23 @@ public class OomActivity extends AppCompatActivity {
             View view = View.inflate(OomActivity.this, R.layout.list_item, null);
             ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
 
-            // 1 完全显示图片大小,ListView 滑动界面异常卡顿
-            imageView.setImageResource(R.mipmap.t4);
+            /*// 1 完全显示图片大小,ListView 滑动界面异常卡顿，还会oom
+            imageView.setImageResource(R.drawable.t4);*/
 
-            String imageKey = String.valueOf(R.mipmap.t4);//得到资源id的唯一标示
+            String imageKey = String.valueOf(R.drawable.t4);//得到资源id的唯一标示
             Bitmap bitmap = mMemoryCache.get(imageKey);//从lruCache中取出该缓存
 
              // 2
-            /*//如果缓存中有该资源
+            //如果缓存中有该资源
             if (bitmap != null) {
                 imageView.setImageBitmap(bitmap);
             } else {
                 //对非常大的图片进行压缩显示(压缩成100*100显示),以适合的宽高显示大小
-                Bitmap bitmap2 = decodeSampleBitmapFromResource(getResources(), R.mipmap.t4, 100, 100);
+                 // inSampleSize 只是压缩率，不影响图片的宽高，控件的大小，只是分辨率变小了，变模糊了
+                Bitmap bitmap2 = decodeSampleBitmapFromResource(getResources(), R.drawable.t4, 100, 100);
                 imageView.setImageBitmap(bitmap2);
                 mMemoryCache.put(imageKey, bitmap2);//添加到缓存中
-            }*/
+            }
 
             return view;
         }

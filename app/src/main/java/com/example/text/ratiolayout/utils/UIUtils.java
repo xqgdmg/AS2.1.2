@@ -1,8 +1,10 @@
-package com.example.text.ratiolayout;
+package com.example.text.ratiolayout.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
+
+import com.example.text.ratiolayout.MyApplication;
 
 
 /**

@@ -1,19 +1,31 @@
-package com.example.text.ratiolayout;
+package com.example.text.ratiolayout.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.FrameLayout;
+
+import com.example.text.ratiolayout.R;
+import com.example.text.ratiolayout.utils.UIUtils;
+
 /**
  * 创建者     Chris
  * 创建时间   2016/7/9 16:13
  * 描述	     1.已知宽度,可以动态计算高度
  * 描述	     2.已知高度,可以动态计算宽度
  * 描述 公式:图片的宽高比===控件的宽高比
+ *
+ * 自定义控件的构造方法
+ *
+ * 一个参数：     代码调用
+ *  二个参数:     xml调用
+ *  三个参数：    接受一个style资源
+ *
+ *  为什么 oppo n3 显示不出图片
  */
 public class RatioLayout extends FrameLayout {
-    public static final String TAG = "RatioLayout";
+    public static final String TAG = "TAG";
 
 
     private float mPicRatio = 1f;
@@ -38,7 +50,7 @@ public class RatioLayout extends FrameLayout {
     public RatioLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-
+         // 两个参数的构造方法中
         //取出自定义的属性
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RatioLayout);
 
@@ -57,14 +69,19 @@ public class RatioLayout extends FrameLayout {
          */
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+
+         // 宽度是固定的
         if (widthMode == MeasureSpec.EXACTLY && mRelative == RELATIVE_WIDTH) {
             //得到自身的宽度
             int selfWidth = MeasureSpec.getSize(widthMeasureSpec);
 
             //动态计算高度
             //图片的宽高比===控件的宽/控件的宽高
-            int selfHeight = (int) (selfWidth / mPicRatio + .5f);
+            int selfHeight = (int) (selfWidth / mPicRatio + .5f); //  + .5f 和 math.round() 是一样的效果
+            Log.e(TAG, "selfWidth:" + selfWidth);
+            Log.e(TAG, "selfHeight:" + selfHeight);
 
+             // 设置自身的宽高
             setMeasuredDimension(selfWidth, selfHeight);
 
             /*
@@ -76,11 +93,13 @@ public class RatioLayout extends FrameLayout {
             getMeasureWidth();
             getMeasureHeight();
              */
+
             //让孩子测绘自身
             int childWidth = selfWidth - getPaddingLeft() - getPaddingRight();
             int childHeight = selfHeight - getPaddingBottom() - getPaddingTop();
             int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(childWidth, MeasureSpec.EXACTLY);
             int childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(childHeight, MeasureSpec.EXACTLY);
+             // 测量孩子
             measureChildren(childWidthMeasureSpec, childHeightMeasureSpec);
 
             int childHeightDp = UIUtils.px2Dip(childHeight);

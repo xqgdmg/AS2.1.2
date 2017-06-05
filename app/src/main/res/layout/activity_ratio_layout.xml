@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.text.ratiolayout.ui.RatioLayoutActivity">
+
+    <!-- 已知图片的宽高比，并且是固定的，这里直接写死就行了，代码优先级高于 xml-->
+    <com.example.text.ratiolayout.view.RatioLayout
+        android:id="@+id/ratio"
+        android:layout_width="444dp"
+        android:layout_height="wrap_content"
+        app:picRatio="1"
+        app:relative="width">
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/t2" />
+    </com.example.text.ratiolayout.view.RatioLayout>
+
+</RelativeLayout>

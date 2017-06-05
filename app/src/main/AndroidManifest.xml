@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".oom.OomActivity"/>
+        <activity android:name=".ui.OomActivity" />
+        <activity android:name=".ui.RatioLayoutActivity"></activity>
     </application>
 
 </manifest>

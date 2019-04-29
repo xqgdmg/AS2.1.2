@@ -36,20 +36,20 @@ public class RatioLayoutActivity extends Activity {
         // 1 计算本地图片的宽高比
         mothod1(iv, ratioLayout);
 
-        // 2 计算图片的宽高比 glide
-        mothod2(iv, ratioLayout);
+//        // 2 计算图片的宽高比 glide
+//        mothod2(iv, ratioLayout);
     }
 
-    private void mothod2(ImageView iv, RatioLayout ratioLayout) {
-
-    }
+//    private void mothod2(ImageView iv, RatioLayout ratioLayout) {
+//
+//    }
 
     private void mothod1(ImageView iv, RatioLayout ratioLayout) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true; // 相册图片铺满屏幕，直接 oom，只写这个是黑色的图片
         // 通过这个bitmap获取图片的宽和高。。。占用了 167M 的运行内存（p8迷你的可用运行内存 175 M 左右）
          // R.drawable.big 是一张电脑壁纸
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.big,options); // 这里的 options 带有图片大小
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.t4,options); // 这里的 options 带有图片大小
         if (bitmap == null){
             Log.e("TAG","bitmap为空");
         }
@@ -73,7 +73,7 @@ public class RatioLayoutActivity extends Activity {
         }
         options.inSampleSize = scale;
         options.inJustDecodeBounds = false;
-        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.big,options);
+        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.t4,options);
         iv.setImageBitmap(bitmap2); // 设置图片到控件
         ratioLayout.setPicRatio(ratio); // 可以点击设置
 //        ratioLayout.setPicRatio(2); // 手动减小一半，图片会被压缩
